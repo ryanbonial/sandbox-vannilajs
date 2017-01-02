@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<body>
+	<h2>Fun with IIFEs and 'use strict'.</h2>
+	<h3> View and edit the source code to get the full effect. From my tests Chrome, Firefox, and Edge all work the same way with these</h3>
+
+<script type="text/javascript">
+	//'use strict'; // uncomment this use strict at the top and it is strict mode for everyone below
+	strictKiller = "I'm code that executes before the 'use strict' making the it not strict";
+	'use strict'; // A 'use strict' that is not at the top does nothing
+	alert(strictKiller);
+
+	// Here is an IIFE (immediately-invoked function expression, pronounced "iffy")
+	(function () {
+		'use strict'; // This sets the whole IIFE in strict
+		var strictVariable = "I'm a strict variable in an IIFE";
+		alert(strictVariable);
+		//unStrictVariable = "If you uncomment me I will break stuff because I am not initialized with var";
+	})();
+
+	unStrictVariable = "I'm an un-strict variable that can be saved by a strict IIFE above me";
+	alert(unStrictVariable);
+
+	'use strict'; // Here is another random useless 'use strict'
+	unStrictVariable2 = "I'm an un-strict variable concatonated after a use strict";
+	alert(unStrictVariable2);
+</script>
+
+</body>
+</html>
